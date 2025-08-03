@@ -7,7 +7,7 @@ function Dashboard() {
 
   useEffect(() => {
     axios
-      .get("/api/intern-data")
+      .get(`${import.meta.env.VITE_API_URL}/api/intern-data`)
       .then((res) => setData(res.data))
       .catch((err) => console.error("Error fetching data:", err));
   }, []);

@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const PORT = 5000;
 
 app.use(cors());
 
@@ -22,11 +21,10 @@ const leaderboardData = [
   { name: "Anurag", donations: 20000 },
   { name: "Divya", donations: 10000 },
   { name: "Amarpreet", donations: 7500 },
-  {name: "Sakshi", donations: 6000},
+  { name: "Sakshi", donations: 6000 },
   { name: "Kriti", donations: 5000 },
-  {name: "Vikas", donations: 5500},
-  {name: "Adarsh", donations: 5500},
-
+  { name: "Vikas", donations: 5500 },
+  { name: "Adarsh", donations: 5500 }
 ];
 
 // Health check route
@@ -44,5 +42,6 @@ app.get('/api/leaderboard', (req, res) => {
   res.json(leaderboardData);
 });
 
-// Start server
-app.listen(PORT, () => console.log(`Backend running on http://localhost:${PORT}`));
+// Use Render's port or default to 5000 locally
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, '0.0.0.0', () => console.log(`Backend running on port ${PORT}`));
